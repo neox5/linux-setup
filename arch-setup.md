@@ -129,7 +129,9 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # skip GRUB boot menu
-
+sed -i '/^GRUB_TIMEOUT=/s/=.*?$/=0/'
+sed -i '/^GRUB_TIMEOUT_STYLE=/s/=.*?$/=hidden/'
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### Reboot system and remove usb drive
