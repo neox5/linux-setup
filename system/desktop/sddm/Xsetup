@@ -1,11 +1,13 @@
 #!/bin/sh
 # Xsetup - run as root before the login dialog appears
-# ---
+
 # Multi monitor setup on login screen
+# -----------------------------------
 # source: blog.victormendonca.com/2018/06/29/how-to-fix-sddm-on-multiple-screens/
 # command: xrandr | grep ' connected'
-xrandr --output HDMI-1 --mode 1440x2560 --pos 5280x0 --rotate right
-xrandr --output HDMI-2 --mode 1440x2560 --pos 1440x200 -rotate left
-xrandr --output DP-8 --mode 3840x2160 --pos 0x0 --rotate normal
-# Login key mapping
-setxkbmap="at"
+xrandr --output DP-8 --auto --primary
+# xrandr --output HDMI-1 --right-of DP-8 --rotate right --noprimary
+# xrandr --output HDMI-2 --left-of DP-8 --rotate left --noprimary
+
+xrandr --output HDMI-1 --off
+xrandr --output HDMI-2 --off
